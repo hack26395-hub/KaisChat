@@ -5,8 +5,9 @@ let _client: SupabaseClient | null = null;
 
 function getClient(): SupabaseClient {
   if (_client) return _client;
-  const url = SUPABASE_URL;
-  const key = SUPABASE_ANON_KEY;
+    const url = 'https://fenzcpsruyskwtrvoonz.supabase.co';
+  const key = 'sb_publishable_JXHtjrj_U3wR35agjh0YqA_zxcRuS6I';
+  
   if (!url || !key || url === 'https://placeholder.supabase.co') {
     _client = createClient('https://placeholder.supabase.co', 'placeholder-key', {
       auth: { persistSession: false, autoRefreshToken: false },
