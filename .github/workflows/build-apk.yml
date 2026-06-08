@@ -27,13 +27,14 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
+      - name: Fix ajv-keywords
+        run: npm install ajv@^8 ajv-keywords@^5 --legacy-peer-deps
+
       - name: Install Expo CLI
         run: npm install -g @expo/cli@latest
 
       - name: Prebuild Android
         run: npx expo prebuild --platform android --clean
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Build APK
         run: cd android && ./gradlew assembleRelease
