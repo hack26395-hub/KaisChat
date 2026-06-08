@@ -28,10 +28,12 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Install Expo CLI
-        run: npm install -g @expo/cli
+        run: npm install -g @expo/cli@latest
 
       - name: Prebuild Android
         run: npx expo prebuild --platform android --clean
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Build APK
         run: cd android && ./gradlew assembleRelease
